@@ -1,35 +1,37 @@
-// Hollow Diamond Pattern
+/**
+ * Prints a hollow diamond star pattern
+ * @param {number} size - Size of the diamond (must be >= 1)
+ */
 
-let n = 5;                     // size of the diamond
-let total = 2 * n - 1;         // total rows
-
-for (let i = 0; i < total; i++) {
-
-  let start, end;
-
-  // upper part of diamond
-  if (i < n) {
-    start = n - 1 - i;
-    end = n - 1 + i;
-  } 
-  // lower part of diamond
-  else {
-    let temp = total - i - 1;
-    start = n - 1 - temp;
-    end = n - 1 + temp;
+function printHollowDiamond(size) {
+  if (!Number.isInteger(size) || size < 1) {
+    console.error("Invalid input: size must be a positive integer.");
+    return;
   }
 
-  let row = "";
+  const totalRows = 2 * size - 1;
+  const middle = size - 1;
 
-  for (let j = 0; j < total; j++) {
+  for (let row = 0; row < totalRows; row++) {
+    let line = "";
 
-    if (j === start || j === end) {
-      row += "*";
-    } else {
-      row += " ";
+    // distance from middle row
+    const distance = Math.abs(middle - row);
+
+    const left = distance;
+    const right = totalRows - distance - 1;
+
+    for (let col = 0; col < totalRows; col++) {
+      if (col === left || col === right) {
+        line += "*";
+      } else {
+        line += " ";
+      }
     }
 
+    console.log(line);
   }
-
-  console.log(row);
 }
+
+// Example usage
+printHollowDiamond(5);
