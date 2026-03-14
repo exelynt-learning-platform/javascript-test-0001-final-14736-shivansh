@@ -142,7 +142,7 @@ hollow-diamond-pattern
 **Shivansh Dubey**
 
 B.Tech CSE
-Java Full Stack Developer
+
 Technologies: Java, JavaScript, React, MySQL
 
 ---
